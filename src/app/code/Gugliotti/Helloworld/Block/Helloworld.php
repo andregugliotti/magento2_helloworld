@@ -34,6 +34,17 @@ class Helloworld extends Template
     }
 
     /**
+     * isEnabled
+     *
+     * Returns true if this module is enabled.
+     * @return bool
+     */
+    public function isEnabled()
+    {
+        return $this->helper->isEnabled();
+    }
+
+    /**
      * getMessage
      * @return string
      */

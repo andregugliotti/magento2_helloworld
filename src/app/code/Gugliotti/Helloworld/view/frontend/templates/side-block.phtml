@@ -1,0 +1,15 @@
+<?php
+    /** @var Gugliotti\Helloworld\Block\Helloworld $block */
+?>
+<?php if ($block->isEnabled()) : ?>
+<div class="block block-wishlist" data-role="gugliotti-helloworld-sidebar">
+    <div class="block-title">
+        <strong id="block-gugliotti-helloworld-heading" role="heading" aria-level="2">
+            <?= __('Hello World Message'); ?>
+        </strong>
+    </div>
+    <div class="block-content">
+        <p><?= $block->getMessage(); ?></p>
+    </div>
+</div>
+<?php endif; ?>
