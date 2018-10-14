@@ -4,7 +4,7 @@
         layout="1column"
 >
     <body>
-        <referenceContainer name="content">
+        <referenceContainer name="main">
             <block
                     class="Gugliotti\Helloworld\Block\Helloworld"
                     name="helloworld"

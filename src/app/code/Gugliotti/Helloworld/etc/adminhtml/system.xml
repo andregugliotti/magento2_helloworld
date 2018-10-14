@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<config
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd"
+>
+    <system>
+        <section
+            id="gugliotti_helloworld"
+            translate="label"
+            sortOrder="100"
+            showInDefault="1"
+            showInWebsite="1"
+            showInStore="1"
+        >
+            <label>Gugliotti Hello World</label>
+            <tab>general</tab>
+            <resource>Gugliotti_Helloworld::helloworld</resource>
+            <group
+                id="general"
+                translate="label"
+                sortOrder="10"
+                showInDefault="1"
+                showInWebsite="1"
+                showInStore="1"
+            >
+                <label>General Configuration</label>
+                <field
+                    id="enabled"
+                    translate="label,tooltip"
+                    sortOrder="10"
+                    showInDefault="1"
+                    showInWebsite="1"
+                    showInStore="1"
+                    type="select"
+                    canRestore="1"
+                >
+                    <label>Is enabled</label>
+                    <tooltip>The message will appear on frontend?</tooltip>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field
+                    id="message"
+                    translate="label,tooltip"
+                    sortOrder="20"
+                    showInDefault="1"
+                    showInWebsite="1"
+                    showInStore="1"
+                    type="text"
+                    canRestore="1"
+                >
+                    <label>Custom message</label>
+                    <tooltip>Type in the custom message to be displayed</tooltip>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

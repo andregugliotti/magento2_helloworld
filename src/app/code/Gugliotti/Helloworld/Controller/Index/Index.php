@@ -4,6 +4,7 @@
  */
 namespace Gugliotti\Helloworld\Controller\Index;
 
+use Gugliotti\Helloworld\Helper\Data;
 use Magento\Framework\App\Action\Action;
 use Magento\Framework\App\Action\Context;
 use Magento\Framework\View\Result\PageFactory;
@@ -25,16 +26,23 @@ class Index extends Action
     protected $pageFactory;
 
     /**
+     * @var $helper
+     */
+    protected $helper;
+
+    /**
      * Index constructor.
      * @param Context $context
      * @param PageFactory $pageFactory
      */
     public function __construct(
         Context $context,
-        PageFactory $pageFactory
+        PageFactory $pageFactory,
+        Data $helper
     )
     {
         $this->pageFactory = $pageFactory;
+        $this->helper = $helper;
         parent::__construct($context);
     }
 
@@ -44,6 +52,14 @@ class Index extends Action
      */
     public function execute()
     {
-        return $this->pageFactory->create();
+        // verify if this module is enabled and redirect to home
+        if (!$this->helper->isEnabled()) {
+            return $this->_redirect('');
+        }
+
+        // create page and adds a title
+        $page = $this->pageFactory->create();
+        $page->getConfig()->getTitle()->set((__('The Hello World Module for Magento 2')));
+        return $page;
     }
 }

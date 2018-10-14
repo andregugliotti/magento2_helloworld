@@ -4,6 +4,7 @@
  */
 namespace Gugliotti\Helloworld\Block;
 
+use Gugliotti\Helloworld\Helper\Data;
 use \Magento\Framework\View\Element\Template;
 
 /**
@@ -18,11 +19,26 @@ use \Magento\Framework\View\Element\Template;
 class Helloworld extends Template
 {
     /**
+     * @var $helper
+     */
+    protected $helper;
+
+    public function __construct(
+        Data $helper,
+        Template\Context $context,
+        array $data = []
+    )
+    {
+        $this->helper = $helper;
+        parent::__construct($context, $data);
+    }
+
+    /**
      * getMessage
      * @return string
      */
     public function getMessage()
     {
-        return "Temporary Hello World Message";
+        return $this->helper->getConfigData('general/message');
     }
 }
